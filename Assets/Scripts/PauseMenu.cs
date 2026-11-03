@@ -1,16 +1,15 @@
 using UnityEngine;
-using .QuitGame;
 
 public class PauseMenu : MonoBehaviour
 {
     // Reference to the UI Panel Game Object
-    public GameObject pauseMenuPanel; 
+    public GameObject pauseMenuPanel;
     
     public static bool isPaused = false;
 
     void Update()
     {
-        // Toggle pause when the Escape key is pressed
+        // Toggle pause on/off when the Escape key is pressed
         if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
             if (isPaused)
@@ -43,6 +42,6 @@ public class PauseMenu : MonoBehaviour
     public void QuitGame()
     {
         Debug.Log("Game Quit");
-        Quit();
+        QuitGame.Quit();
     }
 }

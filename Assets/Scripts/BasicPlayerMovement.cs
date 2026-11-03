@@ -1,0 +1,33 @@
+using UnityEngine;
+
+public class BasicPlayerMovement : MonoBehaviour
+{
+    private Rigidbody2D myRigidBody;
+    public float moveSpeed = 0f;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        myRigidBody = GetComponent<Rigidbody2D>();
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        if (Input.GetAxisRaw("Horizontal") > 0f)
+        {
+            myRigidBody.linearVelocity = new Vector2(moveSpeed, myRigidBody.linearVelocity.y);  
+            transform.localScale = new Vector2(1f, 1f);
+        }
+        else if (Input.GetAxisRaw("Horizontal") < 0f)
+        {
+            myRigidBody.linearVelocity = new Vector2(-moveSpeed, myRigidBody.linearVelocity.y);
+            transform.localScale = new Vector2(-1f, 1f);
+
+        }
+        else
+        {
+            myRigidBody.linearVelocity = new Vector2(0f, myRigidBody.linearVelocity.y);
+        }
+    }
+}

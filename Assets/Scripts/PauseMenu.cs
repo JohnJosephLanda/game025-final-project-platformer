@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -39,9 +40,12 @@ public class PauseMenu : MonoBehaviour
         isPaused = false;
     }
 
-    public void QuitGame()
+    public void QuitButton()
     {
         Debug.Log("Game Quit");
-        QuitGame.Quit();
+
+        // should probably change this to be the quit game function
+        UnityEditor.EditorApplication.isPlaying = false;
+        Application.Quit();
     }
 }

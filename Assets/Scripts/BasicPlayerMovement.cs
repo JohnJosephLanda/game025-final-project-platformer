@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using UnityEngine;
 
 public class BasicPlayerMovement : MonoBehaviour
@@ -9,6 +10,8 @@ public class BasicPlayerMovement : MonoBehaviour
     public float jumpSpeed;
     private Rigidbody2D myRigidBody;
     public float moveSpeed = 0f;
+    private bool doubleJump = false;
+    public bool doubleJumpUnlocked = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,12 +27,12 @@ public class BasicPlayerMovement : MonoBehaviour
         if (Input.GetAxisRaw("Horizontal") > 0f)
         {
             myRigidBody.linearVelocity = new Vector2(moveSpeed, myRigidBody.linearVelocity.y);  
-            //transform.localScale = new Vector2(1f, 1f);
+            transform.localScale = new Vector2(1f, 1f);
         }
         else if (Input.GetAxisRaw("Horizontal") < 0f)
         {
             myRigidBody.linearVelocity = new Vector2(-moveSpeed, myRigidBody.linearVelocity.y);
-            //transform.localScale = new Vector2(-1f, 1f);
+            transform.localScale = new Vector2(-1f, 1f);
 
         }
         else
@@ -40,8 +43,13 @@ public class BasicPlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (isGrounded)
+            doubleJump = true;
+
+        if (Input.GetButtonDown("Jump") && (isGrounded || (doubleJump && doubleJumpUnlocked)))
         {
+            if (!isGrounded)
+                doubleJump = false;
             myRigidBody.linearVelocity = new Vector2(myRigidBody.linearVelocity.x, jumpSpeed);
         }
     }

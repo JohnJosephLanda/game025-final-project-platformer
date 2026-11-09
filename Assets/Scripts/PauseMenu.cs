@@ -1,0 +1,51 @@
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class PauseMenu : MonoBehaviour
+{
+    // Reference to the UI Panel Game Object
+    public GameObject pauseMenuPanel;
+    
+    public static bool isPaused = false;
+
+    void Update()
+    {
+        // Toggle pause on/off when the Escape key is pressed
+        if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            if (isPaused)
+            {
+                ResumeGame();
+            }
+            else
+            {
+                PauseGame();
+            }
+        }
+    }
+
+    public void PauseGame()
+    {
+        Debug.Log("Game Paused");
+        pauseMenuPanel.SetActive(true);
+        Time.timeScale = 0f;
+        isPaused = true;
+    }
+
+    public void ResumeGame()
+    {
+        Debug.Log("Game Resumed");
+        pauseMenuPanel.SetActive(false);
+        Time.timeScale = 1f;
+        isPaused = false;
+    }
+
+    public void QuitButton()
+    {
+        Debug.Log("Game Quit");
+
+        // should probably change this to be the quit game function
+        UnityEditor.EditorApplication.isPlaying = false;
+        Application.Quit();
+    }
+}

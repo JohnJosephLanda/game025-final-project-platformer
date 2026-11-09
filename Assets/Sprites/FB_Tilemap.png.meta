@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: 581fbc1a103b3ae4bb43af080b5173b4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6695961395936351677
+    second: FB_Tilemap_0
+  - first:
+      213: -6140817651159749408
+    second: FB_Tilemap_1
+  - first:
+      213: -6476763928602985849
+    second: FB_Tilemap_2
+  - first:
+      213: -5222010583813164167
+    second: FB_Tilemap_3
+  - first:
+      213: 4240422277934879797
+    second: FB_Tilemap_4
+  - first:
+      213: 2484811127312543168
+    second: FB_Tilemap_5
+  - first:
+      213: 2806382268479090226
+    second: FB_Tilemap_6
+  - first:
+      213: 3483769051575744920
+    second: FB_Tilemap_7
+  - first:
+      213: 5106511236004274505
+    second: FB_Tilemap_8
+  - first:
+      213: 7708796420124140321
+    second: FB_Tilemap_9
+  - first:
+      213: 4270490583329330408
+    second: FB_Tilemap_10
+  - first:
+      213: 983719227259222623
+    second: FB_Tilemap_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FB_Tilemap_0
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 159
+        width: 69
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34a2c7d469a2313a0800000000000000
+      internalID: -6695961395936351677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FB_Tilemap_1
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 159
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ecac28b1ee67caa0800000000000000
+      internalID: -6140817651159749408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FB_Tilemap_2
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 160
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78a3e85b589ed16a0800000000000000
+      internalID: -6476763928602985849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FB_Tilemap_3
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 160
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9737c7a9a01b787b0800000000000000
+      internalID: -5222010583813164167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FB_Tilemap_4
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 124
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53416f5589109da30800000000000000
+      internalID: 4240422277934879797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FB_Tilemap_5
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 124
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cde6612e82db7220800000000000000
+      internalID: 2484811127312543168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FB_Tilemap_6
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 124
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23ea6a8edc542f620800000000000000
+      internalID: 2806382268479090226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FB_Tilemap_7
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 124
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 899fbae9e75d85030800000000000000
+      internalID: 3483769051575744920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FB_Tilemap_8
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 124
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9416397e9e8fdd640800000000000000
+      internalID: 5106511236004274505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FB_Tilemap_9
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 89
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1236d4b40852bfa60800000000000000
+      internalID: 7708796420124140321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FB_Tilemap_10
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 89
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e4defb3f84d34b30800000000000000
+      internalID: 4270490583329330408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FB_Tilemap_11
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 89
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5af18bdc6fd6ad00800000000000000
+      internalID: 983719227259222623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      FB_Tilemap_0: -6695961395936351677
+      FB_Tilemap_1: -6140817651159749408
+      FB_Tilemap_10: 4270490583329330408
+      FB_Tilemap_11: 983719227259222623
+      FB_Tilemap_2: -6476763928602985849
+      FB_Tilemap_3: -5222010583813164167
+      FB_Tilemap_4: 4240422277934879797
+      FB_Tilemap_5: 2484811127312543168
+      FB_Tilemap_6: 2806382268479090226
+      FB_Tilemap_7: 3483769051575744920
+      FB_Tilemap_8: 5106511236004274505
+      FB_Tilemap_9: 7708796420124140321
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

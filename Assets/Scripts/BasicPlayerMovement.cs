@@ -18,6 +18,7 @@ public class BasicPlayerMovement : MonoBehaviour
     public bool doubleJumpUnlocked = true;
     public bool dashUnlocked = true;
     private int state = 0;
+    public float playerScale = 0.6f;
 
     private Animator myAnim;
 
@@ -39,12 +40,12 @@ public class BasicPlayerMovement : MonoBehaviour
             if (Input.GetAxisRaw("Horizontal") > 0f)
             {
                 myRigidBody.linearVelocity = new Vector2(moveSpeed, myRigidBody.linearVelocity.y);  
-                transform.localScale = new Vector2(1f, 1f);
+                transform.localScale = new Vector2(playerScale, playerScale);
             }
             else if (Input.GetAxisRaw("Horizontal") < 0f)
             {
                 myRigidBody.linearVelocity = new Vector2(-moveSpeed, myRigidBody.linearVelocity.y);
-                transform.localScale = new Vector2(-1f, 1f);
+                transform.localScale = new Vector2(-playerScale, playerScale);
 
             }
             else

@@ -41,5 +41,17 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BBG
+    uniqueID: 1257699835
+    locked: 0
+  - name: BG
+    uniqueID: 147575231
+    locked: 0
+  - name: Ground
+    uniqueID: 448354793
+    locked: 0
+  - name: FG
+    uniqueID: 3354901473
+    locked: 0
   m_RenderingLayers:
   - Default

@@ -10,10 +10,10 @@ public class CameraFollow : MonoBehaviour
     void Update()
     {
          toPlayer = Vector2.Distance(transform.position, target.transform.position);
-        if (toPlayer > 5)
-            followSpeed = 5;
+        if (toPlayer > 6)
+            followSpeed = 7;
         else 
-            followSpeed = 4;
+            followSpeed = 5;
         transform.position = Vector2.MoveTowards(transform.position , target.transform.position , followSpeed * Time.deltaTime);
         transform.position = new Vector3(transform.position.x, transform.position.y, -10);
     }

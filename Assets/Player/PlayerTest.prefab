@@ -305,6 +305,7 @@ MonoBehaviour:
   groundCheckRadius: 0.5383
   jumpSpeed: 10
   moveSpeed: 7
+  dashSpeed: 18
   doubleJumpUnlocked: 1
 --- !u!70 &3356549342869388704
 CapsuleCollider2D:

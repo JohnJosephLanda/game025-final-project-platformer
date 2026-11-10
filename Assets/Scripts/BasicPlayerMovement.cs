@@ -19,15 +19,19 @@ public class BasicPlayerMovement : MonoBehaviour
     public bool dashUnlocked = true;
     private int state = 0;
 
+    private Animator myAnim;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
+        myAnim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        myAnim.SetFloat("Speed", Mathf.Abs(myRigidBody.linearVelocity.x));
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
 
         if (state == 0)

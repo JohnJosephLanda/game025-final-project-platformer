@@ -309,7 +309,7 @@ MonoBehaviour:
   dashSpeed: 18
   doubleJumpUnlocked: 1
   dashUnlocked: 1
-  playerScale: 0.6
+  playerScale: 0.4
 --- !u!70 &3356549342869388704
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

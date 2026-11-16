@@ -18,7 +18,7 @@ public class BasicPlayerMovement : MonoBehaviour
     public bool doubleJumpUnlocked = true;
     public bool dashUnlocked = true;
     private int state = 0;
-    public float playerScale = 0.6f;
+    public float playerScale = 0.4f;
 
     private Animator myAnim;
 

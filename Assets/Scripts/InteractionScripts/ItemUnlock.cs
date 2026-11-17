@@ -4,7 +4,7 @@ using System;
 public class ItemUnlock : MonoBehaviour, IUsesInputManager
 {
     // private bool canInteract;
-    [SerializeField] private string ItemName;
+    [SerializeField] private enum ItemName;
     private IInputManager _InputManager;
     [SerializeField] private GameObject player;
     [SerializeField] private BasicPlayerMovement playerScript;
@@ -21,7 +21,7 @@ public class ItemUnlock : MonoBehaviour, IUsesInputManager
             throw new ArgumentException("Player does not have a value");
         }
         
-        if (BasicPlayerMovement == null)
+        if (playerScript == null)
         {
             try 
             {
@@ -61,8 +61,7 @@ public class ItemUnlock : MonoBehaviour, IUsesInputManager
 
     public void OnInteraction()
     {
-        // likely will trigger something in the player to unlock an ability
-        throw new NotImplementedException("Item Unlock does not yet have the OnInteraction() function written.");
+        player.ItemUnlock(ItemName);
     }
 
     public string GetItemName()

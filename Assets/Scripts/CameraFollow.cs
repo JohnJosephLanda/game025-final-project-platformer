@@ -11,8 +11,8 @@ public class CameraFollow : MonoBehaviour
     {
         toPlayer = Vector2.Distance(transform.position, target.transform.position);
         followSpeed = Vector3.Magnitude(target.GetComponent<Rigidbody2D>().linearVelocity);
-        if (toPlayer > 5)
-            followSpeed *= 1;
+        if (toPlayer > 2)
+            followSpeed = toPlayer * 1;
         else 
             followSpeed *= 1f;
         transform.position = Vector2.MoveTowards(transform.position , target.transform.position , followSpeed * Time.deltaTime);

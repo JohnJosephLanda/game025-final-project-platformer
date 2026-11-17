@@ -4,7 +4,7 @@ using System;
 public class ItemUnlock : MonoBehaviour, IUsesInputManager
 {
     // private bool canInteract;
-    [SerializeField] private enum ItemName;
+    [SerializeField] private ItemEnum ItemName;
     private IInputManager _InputManager;
     [SerializeField] private GameObject player;
     [SerializeField] private BasicPlayerMovement playerScript;
@@ -12,9 +12,9 @@ public class ItemUnlock : MonoBehaviour, IUsesInputManager
 
     void Start()
     {
-        if (ItemName == null)
+        if (ItemName == ItemEnum.noAssignedUpgrade)
         {
-            throw new ArgumentException("Item Name does not have a value");
+            throw new ArgumentException("Item Name does not have an assigned upgrade");
         }
         
         if (player == null)
@@ -65,7 +65,7 @@ public class ItemUnlock : MonoBehaviour, IUsesInputManager
 
     public void OnInteraction()
     {
-        _ItemUnlockUsed = player.ItemUnlock(ItemName);
+        _ItemUnlockUsed = playerScript.ItemUnlock(ItemName);
         
         if (_ItemUnlockUsed)
         {
@@ -78,6 +78,6 @@ public class ItemUnlock : MonoBehaviour, IUsesInputManager
 
     public string GetItemName()
     {
-        return ItemName;
+        return ItemName.ToString();
     }
 }

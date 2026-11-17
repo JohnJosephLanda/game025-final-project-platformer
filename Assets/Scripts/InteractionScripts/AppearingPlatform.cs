@@ -12,12 +12,12 @@ public class AppearingPlatform : MonoBehaviour
     {
         if (rend == null)
         {
-            rend = platform.GetComponent<SpriteRenderer>();
+            rend = platform.GetComponent<SpriteRenderer>() as SpriteRenderer;
         }
         
         if (boxCol == null)
         {
-            boxCol = platform.GetComponent<BoxCollider2D>();
+            boxCol = platform.GetComponent<BoxCollider2D>() as BoxCollider2D;
         }
     }
 

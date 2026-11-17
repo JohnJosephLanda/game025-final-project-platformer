@@ -7,6 +7,7 @@ public class ItemUnlock : MonoBehaviour, IUsesInputManager
     [SerializeField] private string ItemName;
     private IInputManager _InputManager;
     [SerializeField] private GameObject player;
+    [SerializeField] private BasicPlayerMovement playerScript;
 
     void Start()
     {
@@ -18,6 +19,18 @@ public class ItemUnlock : MonoBehaviour, IUsesInputManager
         if (player == null)
         {
             throw new ArgumentException("Player does not have a value");
+        }
+        
+        if (BasicPlayerMovement == null)
+        {
+            try 
+            {
+                playerScript = player.GetComponent<BasicPlayerMovement>() as BasicPlayerMovement;
+            }
+            catch (Exception e)
+            {
+                throw new ArgumentException("Player Script does not have a value and cannot default to the player script");
+            }
         }
     }
     

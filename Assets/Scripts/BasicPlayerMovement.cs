@@ -112,4 +112,52 @@ public class BasicPlayerMovement : MonoBehaviour
     {
         print("this is where death should happen");
     }
+
+
+
+
+
+
+    public bool ItemUnlock(ItemEnum item)
+    {
+        if (item == ItemEnum.doubleJump)
+        {
+            return EnableDoubleJump();
+        }
+        if (item == ItemEnum.dash)
+        {
+            return EnableDash();
+        }
+        
+        return false;
+    }
+
+
+
+
+    private bool EnableDoubleJump()
+    {
+        doubleJumpUnlocked = true;
+        return doubleJumpUnlocked;
+    }
+    
+    private bool EnableDash()
+    {
+        dashUnlocked = true;
+        return dashUnlocked;
+    }
+
+
+
+    private bool DisableDoubleJump()
+    {
+        doubleJumpUnlocked = false;
+        return !doubleJumpUnlocked; // should be true if code works
+    }
+    
+    private bool DisableDash()
+    {
+        dashUnlocked = false;
+        return !dashUnlocked; // should be true if code works
+    }
 }

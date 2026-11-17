@@ -115,7 +115,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7153194811708954212}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -168,4 +168,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AppearingPlatform
   platform: {fileID: 7153194811708954212}
   rend: {fileID: 2735258212663120758}
+  boxCol: {fileID: 3250511879327096675}
   buttonsRemaining: 1

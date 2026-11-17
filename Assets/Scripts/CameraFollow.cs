@@ -14,7 +14,7 @@ public class CameraFollow : MonoBehaviour
         if (toPlayer > 5)
             followSpeed *= 1;
         else 
-            followSpeed *= 0.8f;
+            followSpeed *= 1f;
         transform.position = Vector2.MoveTowards(transform.position , target.transform.position , followSpeed * Time.deltaTime);
         transform.position = new Vector3(transform.position.x, transform.position.y, -10);
     }

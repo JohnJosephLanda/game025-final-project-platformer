@@ -24,6 +24,7 @@ public class BasicPlayerMovement : MonoBehaviour
     public TextMeshProUGUI sanityText;
 
     private int sanity = 100;
+    private float accerate = 0.4f;
 
     private Animator myAnim;
 
@@ -44,12 +45,18 @@ public class BasicPlayerMovement : MonoBehaviour
         {
             if (Input.GetAxisRaw("Horizontal") > 0f)
             {
-                myRigidBody.linearVelocity = new Vector2(moveSpeed, myRigidBody.linearVelocity.y);  
+                if (myRigidBody.linearVelocityX < moveSpeed)
+                    myRigidBody.linearVelocity = new Vector2((Mathf.Abs(myRigidBody.linearVelocityX) + accerate), myRigidBody.linearVelocity.y);  
+                else 
+                    myRigidBody.linearVelocity = new Vector2(moveSpeed, myRigidBody.linearVelocity.y);
                 transform.localScale = new Vector2(playerScale, playerScale);
             }
             else if (Input.GetAxisRaw("Horizontal") < 0f)
             {
-                myRigidBody.linearVelocity = new Vector2(-moveSpeed, myRigidBody.linearVelocity.y);
+                if (myRigidBody.linearVelocityX > -moveSpeed)
+                    myRigidBody.linearVelocity = new Vector2((-Mathf.Abs(myRigidBody.linearVelocityX) - accerate), myRigidBody.linearVelocity.y);  
+                else 
+                    myRigidBody.linearVelocity = new Vector2(-moveSpeed, myRigidBody.linearVelocity.y);
                 transform.localScale = new Vector2(-playerScale, playerScale);
 
             }

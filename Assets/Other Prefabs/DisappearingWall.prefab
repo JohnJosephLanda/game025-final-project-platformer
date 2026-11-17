@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6328162788689746942}
   - component: {fileID: 3371797258781761794}
   m_Layer: 0
-  m_Name: Wall
+  m_Name: DisappearingWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4173867852446764604}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f2ff6a7c1e2a99409fe8c18711b8cb6, type: 3}
+  m_Script: {fileID: 11500000, guid: fdb97e2de9f2e44499175a443b6a2f4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DisappearingWall
   wall: {fileID: 4173867852446764604}

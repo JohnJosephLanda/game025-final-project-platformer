@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2517985146715297951}
   - component: {fileID: 6715825698472984220}
   m_Layer: 0
-  m_Name: Lever
+  m_Name: RemovingLever
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5809701364390952293}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fd0293dd96955844a26a3775265d8f9, type: 3}
+  m_Script: {fileID: 11500000, guid: 18dcee05d9010ba4182a01136c9ceddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RemovingWallButton
   linkedWall: {fileID: 0}

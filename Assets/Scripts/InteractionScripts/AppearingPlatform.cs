@@ -3,7 +3,17 @@ using UnityEngine;
 public class AppearingPlatform : MonoBehaviour
 {
     public GameObject platform;
+    [SerializeField] private SpriteRenderer rend;
     [SerializeField] private int buttonsRemaining;
+
+
+    void Start()
+    {
+        if (rend == null)
+        {
+            rend = platform.GetComponent<SpriteRenderer>();
+        }
+    }
 
 
     public void ButtonClickedToAddPlatform()
@@ -24,6 +34,7 @@ public class AppearingPlatform : MonoBehaviour
     private void AddPlatform()
     {
         // may eventually want a cool shaking animation and such here later
-        platform.SetActive(true);
+        // platform.SetActive(True); // Won't work because the script won't be enabled
+        rend.enabled = true;
     }
 }

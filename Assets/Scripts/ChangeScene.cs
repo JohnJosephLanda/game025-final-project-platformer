@@ -7,6 +7,7 @@ public class ChangeScene : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Collided with level switch: "+other);
         if (other.CompareTag("Player"))
         {
             LoadScene(sceneName);

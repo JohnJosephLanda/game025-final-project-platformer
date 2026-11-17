@@ -3,6 +3,8 @@ using NUnit.Framework;
 using Unity.VisualScripting;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+using TMPro;
 
 public class BasicPlayerMovement : MonoBehaviour
 {
@@ -18,7 +20,10 @@ public class BasicPlayerMovement : MonoBehaviour
     public bool doubleJumpUnlocked = true;
     public bool dashUnlocked = true;
     private int state = 0;
-    public float playerScale = 0.6f;
+    public float playerScale = 0.4f;
+    public TextMeshProUGUI sanityText;
+
+    private int sanity = 100;
 
     private Animator myAnim;
 
@@ -78,6 +83,8 @@ public class BasicPlayerMovement : MonoBehaviour
                 StartCoroutine(Dash());
             }
         }
+
+        sanityText.text = "Sanity: " + sanity;
     }
 
     private IEnumerator Dash()
@@ -85,5 +92,10 @@ public class BasicPlayerMovement : MonoBehaviour
         myRigidBody.linearVelocity = new Vector2((dashSpeed * transform.localScale.x), myRigidBody.linearVelocity.y);  
         yield return new WaitForSeconds(0.6f);
         state = 0;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        sanity -= damage;
     }
 }

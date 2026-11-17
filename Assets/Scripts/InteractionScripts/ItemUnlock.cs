@@ -8,6 +8,7 @@ public class ItemUnlock : MonoBehaviour, IUsesInputManager
     private IInputManager _InputManager;
     [SerializeField] private GameObject player;
     [SerializeField] private BasicPlayerMovement playerScript;
+    private bool _ItemUnlockUsed = false;
 
     void Start()
     {
@@ -41,8 +42,8 @@ public class ItemUnlock : MonoBehaviour, IUsesInputManager
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Collided with lever: "+other);
-        if (other.CompareTag("Player"))
+        Debug.Log("Collided with item unlock: "+other);
+        if (!_ItemUnlockUsed && other.CompareTag("Player"))
         {
             // canInteract = true;
             _InputManager.SetObjectInteractable((IUsesInputManager) this);
@@ -51,18 +52,29 @@ public class ItemUnlock : MonoBehaviour, IUsesInputManager
     
     private void OnTriggerExit2D(Collider2D other)
     {
-        Debug.Log("Collided with lever: "+other);
-        if (other.CompareTag("Player"))
+        Debug.Log("Collided with item unlock: "+other);
+        if (!_ItemUnlockUsed && other.CompareTag("Player"))
         {
             // canInteract = true;
             _InputManager.SetObjectNonInteractable((IUsesInputManager) this);
         }
     }
 
+
+
+
     public void OnInteraction()
     {
-        player.ItemUnlock(ItemName);
+        _ItemUnlockUsed = player.ItemUnlock(ItemName);
+        
+        if (_ItemUnlockUsed)
+        {
+            _InputManager.SetObjectNonInteractable((IUsesInputManager) this);
+        }
     }
+
+
+
 
     public string GetItemName()
     {

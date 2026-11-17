@@ -8528,6 +8528,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6126903673453920724, guid: ca8c0e25a9788484d8a24907b2de1984, type: 3}
+      propertyPath: m_Color.b
+      value: 0.031446517
+      objectReference: {fileID: 0}
+    - target: {fileID: 6126903673453920724, guid: ca8c0e25a9788484d8a24907b2de1984, type: 3}
+      propertyPath: m_Color.g
+      value: 0.0010877689
+      objectReference: {fileID: 0}
+    - target: {fileID: 6126903673453920724, guid: ca8c0e25a9788484d8a24907b2de1984, type: 3}
+      propertyPath: m_Color.r
+      value: 0.0039576422
+      objectReference: {fileID: 0}
     - target: {fileID: 6471384754646036230, guid: ca8c0e25a9788484d8a24907b2de1984, type: 3}
       propertyPath: m_Name
       value: Global Light 2D

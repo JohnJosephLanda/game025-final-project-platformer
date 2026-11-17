@@ -24,7 +24,7 @@ public class BasicPlayerMovement : MonoBehaviour
     public TextMeshProUGUI sanityText;
 
     private int sanity = 100;
-    private float accerate = 0.4f;
+    private float accerate = 0.5f;
 
     private Animator myAnim;
 
@@ -100,9 +100,16 @@ public class BasicPlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(0.6f);
         state = 0;
     }
-
+    
     public void TakeDamage(int damage)
     {
         sanity -= damage;
+        if (sanity <= 0)
+            Death();
+    }
+
+    public void Death()
+    {
+        print("this is where death should happen");
     }
 }

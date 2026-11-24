@@ -21,6 +21,7 @@ public class BasicPlayerMovement : MonoBehaviour
     private bool doubleJump = false;
     public bool doubleJumpUnlocked = true;
     public bool dashUnlocked = true;
+    private float dashCoolDown;
     private int state = 0;
     public float playerScale = 0.4f;
     public TextMeshProUGUI sanityText;
@@ -97,7 +98,7 @@ public class BasicPlayerMovement : MonoBehaviour
 
         if (state == 0)
         {
-            if (Input.GetButtonDown("Dash") && dashUnlocked)
+            if (Input.GetButtonDown("Dash") && dashUnlocked && dashCoolDown <= 0)
             {
                 state = 1;
                 StartCoroutine(Dash());
@@ -106,6 +107,8 @@ public class BasicPlayerMovement : MonoBehaviour
 
         if (iFrames > 0)
             iFrames -= Time.deltaTime;
+        if (dashCoolDown > 0)
+            dashCoolDown -= Time.deltaTime;
         sanityText.text = "Sanity: " + sanity;
     }
 
@@ -116,6 +119,7 @@ public class BasicPlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(0.6f);
         myRigidBody.gravityScale = 2;
         state = 0;
+        dashCoolDown = 1;
     }
     
     public void TakeDamage(int damage)

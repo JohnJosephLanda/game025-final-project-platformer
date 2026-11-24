@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ChangeScene : MonoBehaviour
+public class ChangeScene : MonoBehaviour, IUsesGameManager
 {
     public string sceneName;
     public int spawnLocation;
@@ -9,7 +9,12 @@ public class ChangeScene : MonoBehaviour
 
     void Start()
     {
-        gameManager = FindObjectsByType<GameManager>(FindObjectsSortMode.None)[0]; // should only have one game manager at start
+        SetGameManagerDependency();
+    }
+
+    public void SetGameManagerDependency()
+    {
+        this.gameManager = FindObjectsByType<GameManager>(FindObjectsSortMode.None)[0]; // should only have one game manager at start
     }
 
     private void OnTriggerEnter2D(Collider2D other)

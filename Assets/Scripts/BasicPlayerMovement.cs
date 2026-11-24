@@ -9,7 +9,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.Rendering.Universal;
 
-public class BasicPlayerMovement : MonoBehaviour
+public class BasicPlayerMovement : MonoBehaviour, IUsesGameManager
 {
     public LayerMask whatIsGround;
     public bool isGrounded;
@@ -50,6 +50,16 @@ public class BasicPlayerMovement : MonoBehaviour
         mySprite = GetComponent<SpriteRenderer>();
         myCollider = GetComponent<Collider2D>();
         playerFlashlight = GetComponent<Light2D>();
+    }
+
+    void Start()
+    {
+        SetGameManagerDependency();
+    }
+
+    void SetGameManagerDependency()
+    {
+        this.gameManager = FindObjectsByType<GameManager>(FindObjectsSortMode.None)[0]; // should only have one game manager at start
     }
 
     // Update is called once per frame

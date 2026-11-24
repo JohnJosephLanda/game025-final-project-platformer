@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
 
     public void EnterSceneChecklist(string currentScene, int respawnLocation)
     {
+        // SetDependencies(); // most scripts can do this themselves
         SceneRespawnSetup(currentScene, respawnLocation);
         GetPlayerAttributes();
         SetPlayerAttributes();

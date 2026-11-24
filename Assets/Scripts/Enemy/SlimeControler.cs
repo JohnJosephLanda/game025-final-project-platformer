@@ -10,6 +10,8 @@ public class SlimeControler : MonoBehaviour
     private Animator blobAnimator;
     public BasicMovement myMove;
     public GameObject[] eyes;
+    public int lightSpeed = 2;
+    public int darkSpeed = 8;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,7 +26,7 @@ public class SlimeControler : MonoBehaviour
         blobAnimator.SetBool("Light", isInLight);
         if (isInLight)
         {
-            myMove.SetSpeed(2);
+            myMove.SetSpeed(lightSpeed);
             for(int i = 0; i < 2; i++)
             {
                 eyes[i].SetActive(false);
@@ -32,7 +34,7 @@ public class SlimeControler : MonoBehaviour
         }
         else 
         {
-            myMove.SetSpeed(8);
+            myMove.SetSpeed(darkSpeed);
             for(int i = 0; i < 2; i++)
             {
                 eyes[i].SetActive(true);

@@ -14,14 +14,8 @@ public class ChangeScene : MonoBehaviour
         }
     }
 
-    public void LoadScene(string scene)
+    public void LoadScene(string scene, int spawnLocation)
     {
-        SceneManager.LoadScene(scene);
-    }
-
-    // I DO NOT RECOMMEND USING THIS
-    public void LoadScene(int sceneNumber)
-    {
-        SceneManager.LoadScene(sceneNumber);
+        GameManager.ChangeSceneProcess(scene, spawnLocation);
     }
 }

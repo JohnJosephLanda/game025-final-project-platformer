@@ -15,7 +15,7 @@ TagManager:
   - Player
   - Enemy
   - Light
-  - 
+  - Abilities
   - 
   - 
   - 
@@ -56,6 +56,9 @@ TagManager:
     locked: 0
   - name: FG
     uniqueID: 3354901473
+    locked: 0
+  - name: Ability
+    uniqueID: 1610537443
     locked: 0
   m_RenderingLayers:
   - Default

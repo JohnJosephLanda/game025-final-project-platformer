@@ -111,8 +111,10 @@ public class BasicPlayerMovement : MonoBehaviour
 
     private IEnumerator Dash()
     {
-        myRigidBody.linearVelocity = new Vector2((dashSpeed * transform.localScale.x), myRigidBody.linearVelocity.y);  
+        myRigidBody.linearVelocity = new Vector2((dashSpeed * transform.localScale.x), 0);  
+        myRigidBody.gravityScale = 0;
         yield return new WaitForSeconds(0.6f);
+        myRigidBody.gravityScale = 2;
         state = 0;
     }
     

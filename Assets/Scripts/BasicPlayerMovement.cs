@@ -6,6 +6,7 @@ using System.Collections;
 using UnityEngine.UI;
 using TMPro;
 using UnityEditor.Experimental.GraphView;
+using UnityEngine.SceneManagement;
 
 public class BasicPlayerMovement : MonoBehaviour
 {
@@ -34,13 +35,17 @@ public class BasicPlayerMovement : MonoBehaviour
     private float knockbackAmount;
     public float iFrames = 0;
 
+    public Image deathScreen;
+    private Collider2D myCollider;
+    private bool death;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         myAnim = GetComponent<Animator>();
         mySprite = GetComponent<SpriteRenderer>();
-
+        myCollider = GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -68,7 +73,7 @@ public class BasicPlayerMovement : MonoBehaviour
                 transform.localScale = new Vector2(-playerScale, playerScale);
 
             }
-            else
+            else if (state != 3)
             {
                 myRigidBody.linearVelocity = new Vector2(0f, myRigidBody.linearVelocity.y);
             }
@@ -121,7 +126,13 @@ public class BasicPlayerMovement : MonoBehaviour
 
     public void Death()
     {
-        print("this is where death should happen");
+        death = true;
+        state = 3;
+        StartCoroutine(Dieing());
+        myCollider.enabled = false;
+        myRigidBody.gravityScale = 0;
+        transform.localScale = new Vector2(-playerScale, playerScale);
+        myRigidBody.linearVelocity = new Vector2(-40, 2);
     }
 
 
@@ -191,7 +202,18 @@ public class BasicPlayerMovement : MonoBehaviour
             yield return new WaitForSeconds(knockbackDuration * 0.25f);
             myRigidBody.linearVelocity = new Vector2((myRigidBody.linearVelocity.x - (knockbackAmount * 0.125f * direction) ), myRigidBody.linearVelocity.y);  
         }
-        state = 0;
+        if (!death)
+            state = 0;
         mySprite.color = new Color(1, 1, 1, 1);
+    }
+
+    private IEnumerator Dieing()
+    {
+        for (int i = 0; i < 16; i++)
+        {
+            deathScreen.color = new Color(0, 0, 0, (i / 10.0f));
+            yield return new WaitForSeconds(0.1f);
+        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

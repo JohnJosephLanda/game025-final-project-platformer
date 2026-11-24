@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using TMPro;
 // using UnityEditor.Experimental.GraphView;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering.Universal;
 
 public class BasicPlayerMovement : MonoBehaviour
 {

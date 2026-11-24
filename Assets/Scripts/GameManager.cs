@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
     {
         SceneRespawnSetup(currentScene, respawnLocation);
         GetPlayerAttributes();
-        SetPlayerSkills();
+        SetPlayerAttributes();
     }
 
 

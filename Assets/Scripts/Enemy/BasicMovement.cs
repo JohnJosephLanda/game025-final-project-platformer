@@ -13,6 +13,7 @@ public class BasicMovement : MonoBehaviour
     private Rigidbody2D myRigidBody;
     public float moveSpeed;
     public float myScale = 1;
+    [SerializeField] private bool isInMainMenu = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,12 +24,15 @@ public class BasicMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        groundAhead = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
-        wallAhead = Physics2D.OverlapCircle(wallCheck.position, wallCheckRaduis, whatIsGround);
-        if (!groundAhead || wallAhead)
-            direction *= -1;
-        myRigidBody.linearVelocity = new Vector2((direction * moveSpeed), myRigidBody.linearVelocity.y);
-        transform.localScale = new Vector2((myScale * direction), myScale);
+        if (!isInMainMenu) // cuts out movement when in main menu
+        {
+            groundAhead = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
+            wallAhead = Physics2D.OverlapCircle(wallCheck.position, wallCheckRaduis, whatIsGround);
+            if (!groundAhead || wallAhead)
+                direction *= -1;
+            myRigidBody.linearVelocity = new Vector2((direction * moveSpeed), myRigidBody.linearVelocity.y);
+            transform.localScale = new Vector2((myScale * direction), myScale);
+        }
     }
 
     public void SetSpeed(float speed)

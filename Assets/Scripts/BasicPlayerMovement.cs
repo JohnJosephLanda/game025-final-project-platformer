@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using TMPro;
 // using UnityEditor.Experimental.GraphView;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering.Universal;
 
 public class BasicPlayerMovement : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class BasicPlayerMovement : MonoBehaviour
 
     private Animator myAnim;
     private SpriteRenderer mySprite;
+    private Light2D playerFlashlight;
 
     private float knockbackDuration;
     private float knockbackAmount;
@@ -41,12 +43,13 @@ public class BasicPlayerMovement : MonoBehaviour
     private bool death;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         myAnim = GetComponent<Animator>();
         mySprite = GetComponent<SpriteRenderer>();
         myCollider = GetComponent<Collider2D>();
+        playerFlashlight = GetComponent<Light2D>();
     }
 
     // Update is called once per frame
@@ -158,6 +161,10 @@ public class BasicPlayerMovement : MonoBehaviour
         {
             return EnableDash();
         }
+        if (item == ItemEnum.flashlightBuff)
+        {
+            return EnableDash();
+        }
         
         return false;
     }
@@ -165,13 +172,13 @@ public class BasicPlayerMovement : MonoBehaviour
 
 
 
-    private bool EnableDoubleJump()
+    public bool EnableDoubleJump()
     {
         doubleJumpUnlocked = true;
         return doubleJumpUnlocked;
     }
     
-    private bool EnableDash()
+    public bool EnableDash()
     {
         dashUnlocked = true;
         return dashUnlocked;
@@ -179,17 +186,30 @@ public class BasicPlayerMovement : MonoBehaviour
 
 
 
-    private bool DisableDoubleJump()
+    public bool DisableDoubleJump()
     {
         doubleJumpUnlocked = false;
         return !doubleJumpUnlocked; // should be true if code works
     }
     
-    private bool DisableDash()
+    public bool DisableDash()
     {
         dashUnlocked = false;
         return !dashUnlocked; // should be true if code works
     }
+
+
+    public bool ChangeFlashlightSize()
+    {
+        playerFlashlight.pointLightInnerAngle += 10;
+        playerFlashlight.pointLightOuterAngle += 10;
+        return true;
+    }
+
+
+
+
+
 
     public void startKnockback(float duration, float amount, int where)
     {
@@ -223,5 +243,37 @@ public class BasicPlayerMovement : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+
+
+
+
+
+
+
+
+
+    /*
+    
+    getter and setter methods
+
+    */
+
+    public void SetFlashlightSize(int innerAngle, int outerAngle)
+    {
+        playerFlashlight.pointLightInnerAngle = innerAngle;
+        playerFlashlight.pointLightOuterAngle = outerAngle;
+    }
+
+    public void SetAbilities(bool doubleJump, bool dash)
+    {
+        doubleJumpUnlocked = doubleJump;
+        dashUnlocked = dash;
+    }
+
+    public void SetSanity(int sanity)
+    {
+        this.sanity = sanity;
     }
 }

@@ -70,6 +70,13 @@ public class ItemUnlock : MonoBehaviour, IUsesInputManager
         if (_ItemUnlockUsed)
         {
             _InputManager.SetObjectNonInteractable((IUsesInputManager) this);
+            this.GetComponent<Animator>().enabled = false;
+            this.GetComponent<SpriteRenderer>().enabled = false;
+            this.enabled = false;
+        }
+        else
+        {
+            throw new FailedMethodException("Item Unlock "+ItemName+" did not work.");
         }
     }
 

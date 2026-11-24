@@ -42,6 +42,8 @@ public class BasicPlayerMovement : MonoBehaviour, IUsesGameManager
     private Collider2D myCollider;
     private bool death;
 
+    private GameManager gameManager;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -57,7 +59,7 @@ public class BasicPlayerMovement : MonoBehaviour, IUsesGameManager
         SetGameManagerDependency();
     }
 
-    void SetGameManagerDependency()
+    public void SetGameManagerDependency()
     {
         this.gameManager = FindObjectsByType<GameManager>(FindObjectsSortMode.None)[0]; // should only have one game manager at start
     }
@@ -211,8 +213,8 @@ public class BasicPlayerMovement : MonoBehaviour, IUsesGameManager
 
     public bool ChangeFlashlightSize()
     {
-        playerFlashlight.pointLightInnerAngle += 10;
-        playerFlashlight.pointLightOuterAngle += 10;
+        playerFlashlight.pointLightInnerAngle += 10f;
+        playerFlashlight.pointLightOuterAngle += 10f;
         return true;
     }
 
@@ -270,7 +272,7 @@ public class BasicPlayerMovement : MonoBehaviour, IUsesGameManager
 
     */
 
-    public void SetFlashlightSize(int innerAngle, int outerAngle)
+    public void SetFlashlightSize(float innerAngle, float outerAngle)
     {
         playerFlashlight.pointLightInnerAngle = innerAngle;
         playerFlashlight.pointLightOuterAngle = outerAngle;
@@ -285,5 +287,34 @@ public class BasicPlayerMovement : MonoBehaviour, IUsesGameManager
     public void SetSanity(int sanity)
     {
         this.sanity = sanity;
+    }
+
+
+
+
+
+    public float GetFlashlightInnerAngle()
+    {
+        return playerFlashlight.pointLightInnerAngle;
+    }
+
+    public float GetFlashlightOuterAngle()
+    {
+        return playerFlashlight.pointLightOuterAngle;
+    }
+
+    public bool GetDoubleJumpUnlocked()
+    {
+        return doubleJumpUnlocked;
+    }
+
+    public bool GetDashUnlocked()
+    {
+        return dashUnlocked;
+    }
+
+    public int GetSanity()
+    {
+        return sanity;
     }
 }

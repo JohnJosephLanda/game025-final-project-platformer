@@ -11,8 +11,8 @@ public class GameManager : MonoBehaviour
     private bool _DoubleJumpUnlocked = false;
     private bool _DashUnlocked = false;
     private int _Sanity = 100;
-    private int _FlashlightInnerRadius = 10;
-    private int _FlashlightOuterRadius = 10;
+    private float _FlashlightInnerAngle = 10f;
+    private float _FlashlightOuterAngle = 10f;
     
     // private GameObject playerObject;
     private BasicPlayerMovement playerScript;
@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
 
         DontDestroyOnLoad(this.gameObject);
 
+        Debug.Log("here2");
 
         EnterSceneChecklist("Mansion1", 0);
     }
@@ -44,6 +45,7 @@ public class GameManager : MonoBehaviour
 
 
     public void ChangeSceneProcess(string sceneName, int spawnLocation) {
+        UpdatePlayerStatus();
         SceneManager.LoadScene(sceneName);
         EnterSceneChecklist(sceneName, spawnLocation);
     }
@@ -54,6 +56,7 @@ public class GameManager : MonoBehaviour
         SceneRespawnSetup(currentScene, respawnLocation);
         GetPlayerAttributes();
         SetPlayerAttributes();
+        Debug.Log("here");
     }
 
 
@@ -62,7 +65,14 @@ public class GameManager : MonoBehaviour
 
 
 
-
+    private void UpdatePlayerStatus()
+    {
+        _FlashlightInnerAngle = playerScript.GetFlashlightInnerAngle();
+        _FlashlightOuterAngle = playerScript.GetFlashlightOuterAngle();
+        _DoubleJumpUnlocked = playerScript.GetDoubleJumpUnlocked();
+        _DashUnlocked = playerScript.GetDashUnlocked();
+        _Sanity = playerScript.GetSanity();
+    }
 
 
     private void SceneRespawnSetup(string currentScene, int respawnLocation)
@@ -83,7 +93,7 @@ public class GameManager : MonoBehaviour
 
     private void SetPlayerAttributes()
     {
-        playerScript.SetFlashlightSize(_FlashlightInnerRadius, _FlashlightOuterRadius);
+        playerScript.SetFlashlightSize(_FlashlightInnerAngle, _FlashlightOuterAngle);
         playerScript.SetAbilities(_DoubleJumpUnlocked, _DashUnlocked);
         playerScript.SetSanity(_Sanity);
     }

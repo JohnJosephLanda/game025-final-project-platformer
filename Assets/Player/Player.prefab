@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1464665498678953052}
   - component: {fileID: 815624923553356832}
   - component: {fileID: 7371767998968699393}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1137891247101367874}
   - component: {fileID: 4063434708435208410}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 8944533902971073798}
   - component: {fileID: 6750669817467515257}
   - component: {fileID: 4952870924077028105}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: PlayerUi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,9 +341,10 @@ GameObject:
   - component: {fileID: 2374582466344712752}
   - component: {fileID: 8411169527998318084}
   - component: {fileID: 1489028756842014236}
-  m_Layer: 0
+  - component: {fileID: 513081077414207823}
+  m_Layer: 8
   m_Name: Flashlight
-  m_TagString: Untagged
+  m_TagString: Flashlight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -427,6 +428,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34b9a73953028b64c9eac1a1805d946f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FollowMouse
+--- !u!60 &513081077414207823
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5154338708996693963}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 8.412303, y: 27.031305}
+      - {x: -8.6447315, y: 27.389233}
+      - {x: -0.1475524, y: 0.49357706}
+      - {x: -0.17890163, y: 0.5295817}
+      - {x: 0.18317631, y: 0.56553257}
+  m_UseDelaunayMesh: 1
 --- !u!1 &7031853925294212132
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,7 +495,7 @@ GameObject:
   - component: {fileID: 6663324965478053045}
   - component: {fileID: 2165545085221945428}
   - component: {fileID: 2787906692792480219}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -513,7 +566,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -940065823
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 1686632200597378666, guid: 644d94bbb5ddfd0428b268eb1ff11df0, type: 3}

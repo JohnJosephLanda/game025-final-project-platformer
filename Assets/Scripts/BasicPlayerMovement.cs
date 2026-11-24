@@ -5,6 +5,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using TMPro;
+using UnityEditor.Experimental.GraphView;
 
 public class BasicPlayerMovement : MonoBehaviour
 {
@@ -27,12 +28,19 @@ public class BasicPlayerMovement : MonoBehaviour
     private float accerate = 0.5f;
 
     private Animator myAnim;
+    private SpriteRenderer mySprite;
+
+    private float knockbackDuration;
+    private float knockbackAmount;
+    public float iFrames = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         myAnim = GetComponent<Animator>();
+        mySprite = GetComponent<SpriteRenderer>();
+
     }
 
     // Update is called once per frame
@@ -91,6 +99,8 @@ public class BasicPlayerMovement : MonoBehaviour
             }
         }
 
+        if (iFrames > 0)
+            iFrames -= Time.deltaTime;
         sanityText.text = "Sanity: " + sanity;
     }
 
@@ -104,6 +114,7 @@ public class BasicPlayerMovement : MonoBehaviour
     public void TakeDamage(int damage)
     {
         sanity -= damage;
+        iFrames = 1f;
         if (sanity <= 0)
             Death();
     }
@@ -159,5 +170,28 @@ public class BasicPlayerMovement : MonoBehaviour
     {
         dashUnlocked = false;
         return !dashUnlocked; // should be true if code works
+    }
+
+    public void startKnockback(float duration, float amount, int where)
+    {
+        knockbackDuration = duration;
+        knockbackAmount = amount;
+        state = 2;
+        mySprite.color = new Color(0.9f, 0.5f, 0.5f, 1);
+        StartCoroutine(knockBack(where));
+    }
+
+    private IEnumerator knockBack(int direction)
+    {
+        if (!isGrounded)
+            knockbackAmount *= 2;
+        myRigidBody.linearVelocity = new Vector2((direction * knockbackAmount), 3);  
+        for (int i = 0; i < 4; i++)
+        {
+            yield return new WaitForSeconds(knockbackDuration * 0.25f);
+            myRigidBody.linearVelocity = new Vector2((myRigidBody.linearVelocity.x - (knockbackAmount * 0.125f * direction) ), myRigidBody.linearVelocity.y);  
+        }
+        state = 0;
+        mySprite.color = new Color(1, 1, 1, 1);
     }
 }

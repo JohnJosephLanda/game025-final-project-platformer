@@ -5,6 +5,9 @@ public class DamagePlayer : MonoBehaviour
     private BasicPlayerMovement player;
 
     public int damage = 10;
+    public float knockbackAmount;
+    public float knockbackDuration;
+    public int direction;
 
     void Start()
     {
@@ -14,16 +17,14 @@ public class DamagePlayer : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (other.CompareTag("Player")) 
+        if (other.CompareTag("Player") && player.iFrames <= 0) 
         {
             player.TakeDamage(damage);
-
-            /*player.knockbackCount = player.knockbackDuration;
-
             if (other.transform.position.x < transform.position.x)
-                player.knockFromRight = true;
+                direction = -1;
             else
-                player.knockFromRight = false;*/
+                direction = 1;
+            player.startKnockback(knockbackDuration, knockbackAmount, direction);
         }
     }
 }

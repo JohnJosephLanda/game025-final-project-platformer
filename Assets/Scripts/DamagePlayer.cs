@@ -19,12 +19,12 @@ public class DamagePlayer : MonoBehaviour
 
         if (other.CompareTag("Player") && player.iFrames <= 0) 
         {
-            player.TakeDamage(damage);
             if (other.transform.position.x < transform.position.x)
                 direction = -1;
             else
                 direction = 1;
             player.startKnockback(knockbackDuration, knockbackAmount, direction);
+            player.TakeDamage(damage);
         }
     }
 }

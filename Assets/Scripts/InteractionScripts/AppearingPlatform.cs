@@ -8,7 +8,7 @@ public class AppearingPlatform : MonoBehaviour
     [SerializeField] private int buttonsRemaining;
 
 
-    void Start()
+    void Awake()
     {
         if (rend == null)
         {

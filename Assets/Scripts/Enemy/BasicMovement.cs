@@ -5,7 +5,10 @@ public class BasicMovement : MonoBehaviour
     public LayerMask whatIsGround;
     public Transform groundCheck;
     public float groundCheckRadius;
-    private bool groundAhead; 
+    private bool groundAhead;
+    private bool wallAhead;
+    public Transform wallCheck;
+    public float wallCheckRaduis; 
     private int direction = 1;
     private Rigidbody2D myRigidBody;
     public float moveSpeed;
@@ -21,9 +24,15 @@ public class BasicMovement : MonoBehaviour
     void FixedUpdate()
     {
         groundAhead = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
-        if (!groundAhead)
+        wallAhead = Physics2D.OverlapCircle(wallCheck.position, wallCheckRaduis, whatIsGround);
+        if (!groundAhead || wallAhead)
             direction *= -1;
         myRigidBody.linearVelocity = new Vector2((direction * moveSpeed), myRigidBody.linearVelocity.y);
         transform.localScale = new Vector2((myScale * direction), myScale);
+    }
+
+    public void SetSpeed(float speed)
+    {
+        moveSpeed = speed;
     }
 }

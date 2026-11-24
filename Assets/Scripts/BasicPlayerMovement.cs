@@ -5,6 +5,8 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using TMPro;
+using UnityEditor.Experimental.GraphView;
+using UnityEngine.SceneManagement;
 
 public class BasicPlayerMovement : MonoBehaviour
 {
@@ -19,6 +21,7 @@ public class BasicPlayerMovement : MonoBehaviour
     private bool doubleJump = false;
     public bool doubleJumpUnlocked = true;
     public bool dashUnlocked = true;
+    private float dashCoolDown;
     private int state = 0;
     public float playerScale = 0.4f;
     public TextMeshProUGUI sanityText;
@@ -27,12 +30,23 @@ public class BasicPlayerMovement : MonoBehaviour
     private float accerate = 0.5f;
 
     private Animator myAnim;
+    private SpriteRenderer mySprite;
+
+    private float knockbackDuration;
+    private float knockbackAmount;
+    public float iFrames = 0;
+
+    public Image deathScreen;
+    private Collider2D myCollider;
+    private bool death;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         myAnim = GetComponent<Animator>();
+        mySprite = GetComponent<SpriteRenderer>();
+        myCollider = GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -60,7 +74,7 @@ public class BasicPlayerMovement : MonoBehaviour
                 transform.localScale = new Vector2(-playerScale, playerScale);
 
             }
-            else
+            else if (state != 3)
             {
                 myRigidBody.linearVelocity = new Vector2(0f, myRigidBody.linearVelocity.y);
             }
@@ -84,33 +98,47 @@ public class BasicPlayerMovement : MonoBehaviour
 
         if (state == 0)
         {
-            if (Input.GetButtonDown("Dash") && dashUnlocked)
+            if (Input.GetButtonDown("Dash") && dashUnlocked && dashCoolDown <= 0)
             {
                 state = 1;
                 StartCoroutine(Dash());
             }
         }
 
+        if (iFrames > 0)
+            iFrames -= Time.deltaTime;
+        if (dashCoolDown > 0)
+            dashCoolDown -= Time.deltaTime;
         sanityText.text = "Sanity: " + sanity;
     }
 
     private IEnumerator Dash()
     {
-        myRigidBody.linearVelocity = new Vector2((dashSpeed * transform.localScale.x), myRigidBody.linearVelocity.y);  
+        myRigidBody.linearVelocity = new Vector2((dashSpeed * transform.localScale.x), 0);  
+        myRigidBody.gravityScale = 0;
         yield return new WaitForSeconds(0.6f);
+        myRigidBody.gravityScale = 2;
         state = 0;
+        dashCoolDown = 1;
     }
     
     public void TakeDamage(int damage)
     {
         sanity -= damage;
+        iFrames = 1f;
         if (sanity <= 0)
             Death();
     }
 
     public void Death()
     {
-        print("this is where death should happen");
+        death = true;
+        state = 3;
+        StartCoroutine(Dieing());
+        myCollider.enabled = false;
+        myRigidBody.gravityScale = 0;
+        transform.localScale = new Vector2(-playerScale, playerScale);
+        myRigidBody.linearVelocity = new Vector2(-40, 2);
     }
 
 
@@ -159,5 +187,39 @@ public class BasicPlayerMovement : MonoBehaviour
     {
         dashUnlocked = false;
         return !dashUnlocked; // should be true if code works
+    }
+
+    public void startKnockback(float duration, float amount, int where)
+    {
+        knockbackDuration = duration;
+        knockbackAmount = amount;
+        state = 2;
+        mySprite.color = new Color(0.9f, 0.5f, 0.5f, 1);
+        StartCoroutine(knockBack(where));
+    }
+
+    private IEnumerator knockBack(int direction)
+    {
+        if (!isGrounded)
+            knockbackAmount *= 2;
+        myRigidBody.linearVelocity = new Vector2((direction * knockbackAmount), 3);  
+        for (int i = 0; i < 4; i++)
+        {
+            yield return new WaitForSeconds(knockbackDuration * 0.25f);
+            myRigidBody.linearVelocity = new Vector2((myRigidBody.linearVelocity.x - (knockbackAmount * 0.125f * direction) ), myRigidBody.linearVelocity.y);  
+        }
+        if (!death)
+            state = 0;
+        mySprite.color = new Color(1, 1, 1, 1);
+    }
+
+    private IEnumerator Dieing()
+    {
+        for (int i = 0; i < 16; i++)
+        {
+            deathScreen.color = new Color(0, 0, 0, (i / 10.0f));
+            yield return new WaitForSeconds(0.1f);
+        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

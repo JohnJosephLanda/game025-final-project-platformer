@@ -58,7 +58,10 @@ public class AppearingPlatform : MonoBehaviour
                 _childRends[i].enabled = true;
             } 
         }
-        rend.enabled = true;
+        else
+        {
+            rend.enabled = true;
+        }
         boxCol.enabled = true;
     }
 }

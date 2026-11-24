@@ -58,7 +58,10 @@ public class DisappearingWall : MonoBehaviour
                 _childRends[i].enabled = false;
             } 
         }
-        rend.enabled = false;
+        else
+        {
+            rend.enabled = false;
+        }
         boxCol.enabled = false;
     }
 }

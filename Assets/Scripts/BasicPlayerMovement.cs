@@ -53,7 +53,9 @@ public class BasicPlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         myAnim.SetFloat("Speed", Mathf.Abs(myRigidBody.linearVelocity.x));
+        myAnim.SetFloat("VertSpeed", myRigidBody.linearVelocity.y);
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
+        myAnim.SetBool("IsGrounded", isGrounded);
 
         if (state == 0)
         {
